@@ -18,6 +18,9 @@ export class CustomNodesComponent implements OnInit {
   // contains user input as number
   node1: number;
   node2: number;
+  node3: number;
+  node4: number;
+  node5: number;
   // functions that store the input
   // see html code
   update1(value) {
@@ -25,6 +28,12 @@ export class CustomNodesComponent implements OnInit {
   }
   update2(value) {
     this.node2 = value;
+  }
+  update3(value) {
+    this.node3 = value;
+  }
+  update4(value) {
+    this.node4 = value;
   }
 
   constructor() {
@@ -59,15 +68,14 @@ export class CustomNodesComponent implements OnInit {
     console.log(this.node1);
     console.log(this.node2);
     // adding the edge
-    this.edges.update({from: this.node1, to: this.node2 , color : 'blue' });
-
+    this.edges.update({id: 1, from: this.node1, to: this.node2 , color : 'blue' });
   }
   // toggles label
   toggle_labels() {
     // if label is on
     if (this.on) {
       for (let j = 1; j < this.i ; j++) {
-        this.nodes.add([{id: j , font: {color: 'rgb(159, 249, 0)'} }]);
+        this.nodes.update([{id: j , font: {color: 'rgb(159, 249, 0)'} }]);
         this.on = false;
 
       }
@@ -78,4 +86,15 @@ export class CustomNodesComponent implements OnInit {
         this.on = true;
     }
   }
-}}
+  }
+  // deletes a node
+  unlink() {
+    console.log(this.node3);
+    console.log(this.node4);
+    this.edges.remove(1);
+  }
+  // deletes all nodes linking to one edge
+  delete_edges() {
+    this.edges.clear(this.node5);
+  }
+}
