@@ -1,6 +1,6 @@
 .wrapper-network {
   width: 100vw;
-  height: 90vh;
+  height: 82vh;
 }
 .actionButton {
   background-color: #5800FF;
@@ -10,6 +10,7 @@
   margin: 0 20px;
   font-weight: bold;
 }
-.actionButton:disabled {
-  opacity: 0.5;
+div{
+  margin-top: 20px;
 }
+
