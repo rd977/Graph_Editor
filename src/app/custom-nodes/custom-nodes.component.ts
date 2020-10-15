@@ -63,10 +63,15 @@ export class CustomNodesComponent implements OnInit {
   }
   // adds a node
   add() {
+    if (this.on){
     this.nodes.add({ id: this.i, label: 'Node' + this.i , color: {
         background: 'rgb(159, 249, 0)',
         border: 'black',
-      }});
+      }});} else {
+      this.nodes.add({ id: this.i, label: 'Node' + this.i , font: {color: 'rgb(159, 249, 0)'}, color: {
+          background: 'rgb(159, 249, 0)',
+          border: 'black',
+        }}); }
     this.i++;
   }
   // links 2 nodes
@@ -88,14 +93,14 @@ export class CustomNodesComponent implements OnInit {
   toggle_labels() {
     // if label is on
     if (this.on) {
-      for (let j = 1; j < this.i ; j++) {
+      for (const j of this.nodes.getIds()) {
         this.nodes.update([{id: j , font: {color: 'rgb(159, 249, 0)'} }]);
         this.on = false;
 
       }
       // label is off
     } else {
-      for (let j = 1; j < this.i ; j++) {
+      for (const j of this.nodes.getIds()) {
         this.nodes.update([{id: j , font: {color: 'black'} }]);
         this.on = true;
     }
@@ -115,6 +120,7 @@ export class CustomNodesComponent implements OnInit {
     this.edges.clear();
     this.person = {0: 0 };
   }
+  // deletes a node
   Delete_node() {
     console.log(this.node5);
     this.nodes.remove([(this.node5) * 1]);
