@@ -1,10 +1,10 @@
-<div id="mynetwork-vis" class="wrapper-network" xmlns="http://www.w3.org/1999/html"></div>
-<div>
-  <button class ="actionButton" (click)="add()" > Add node</button>
-  <button class ="actionButton left" (click)="delete_edges()" > Delete Edges</button>
+<div class="top" id="mynetwork-vis" class="wrapper-network" ></div>
+<div class="top">
+  <button class ="actionButton1" (click)="add()" > Add node</button>
+  <button class ="actionButton left" (click)="delete_edges()" > Clear Edges</button>
   <input #box4 class="left" type="text" (keyup.enter)="update5(box4.value)" (blur)="update5(box4.value)" >
 </div>
-<div>
+<div class="top">
   <input #box id="node1" type="text" (keyup.enter)="update1(box.value)" (blur)="update1(box.value)" >
   <input #box1 id="node2" type="text" (keyup.enter)="update2(box1.value)" (blur)="update2(box1.value)" >
   <button  class ="actionButton" (click)="link()">Link 2 Nodes </button>
@@ -12,4 +12,8 @@
   <input #box3 class="left" type="text" (keyup.enter)="update4(box3.value)" (blur)="update4(box3.value)" >
   <input #box2 class="left" type="text" (keyup.enter)="update3(box2.value)" (blur)="update3(box2.value)" >
 </div>
-<button class ="actionButton" (click)="toggle_labels()" > Toggle</button>
+<div class="top">
+  <button class ="actionButton1" (click)="toggle_labels()" > Toggle</button>
+  <button class ="actionButton left" (click)="Delete_node()" > Toggle</button>
+  <input #box5 class="left" type="text" (keyup.enter)="update6(box5.value)" (blur)="update6(box5.value)" >
+</div>

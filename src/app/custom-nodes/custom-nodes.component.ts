@@ -21,6 +21,7 @@ export class CustomNodesComponent implements OnInit {
   node3: number;
   node4: number;
   node5: number;
+  node6; number;
   // try
   person;
   // functions that store the input
@@ -36,6 +37,12 @@ export class CustomNodesComponent implements OnInit {
   }
   update4(value) {
     this.node4 = value;
+  }
+  update5(value) {
+    this.node5 = value;
+  }
+  update6(value) {
+    this.node6 = value;
   }
 
   constructor() {
@@ -109,6 +116,10 @@ export class CustomNodesComponent implements OnInit {
   }
   // deletes all nodes linking to one edge
   delete_edges() {
-    this.edges.clear(this.node5);
+    this.edges.clear();
+  }
+  Delete_node() {
+    console.log(this.node6);
+    this.edges.clear(this.node6);
   }
 }
