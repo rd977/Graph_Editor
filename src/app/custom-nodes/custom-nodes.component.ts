@@ -19,7 +19,7 @@ export class CustomNodesComponent implements OnInit {
   update1(value) {
     this.node1 = value;
   }
-  update2(value: number) {
+  update2(value) {
     this.node2 = value;
   }
 
@@ -52,7 +52,7 @@ export class CustomNodesComponent implements OnInit {
   link() {
     console.log(this.node1);
     console.log(this.node2);
-    this.edges.add({from: this.node1, to: this.node2 });
+    this.edges.add({from: this.node1, to: this.node2 , color : 'blue' });
 
   }
   toggle_labels() {
