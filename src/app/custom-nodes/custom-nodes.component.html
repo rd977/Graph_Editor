@@ -1,5 +1,9 @@
 <div id="mynetwork-vis" class="wrapper-network" xmlns="http://www.w3.org/1999/html"></div>
-<button class ="actionButton" (click)="add()" > Add node</button>
+<div>
+  <button class ="actionButton" (click)="add()" > Add node</button>
+  <button class ="actionButton left" (click)="delete_edges()" > Delete Edges</button>
+  <input #box4 class="left" type="text" (keyup.enter)="update5(box4.value)" (blur)="update5(box4.value)" >
+</div>
 <div>
   <input #box id="node1" type="text" (keyup.enter)="update1(box.value)" (blur)="update1(box.value)" >
   <input #box1 id="node2" type="text" (keyup.enter)="update2(box1.value)" (blur)="update2(box1.value)" >

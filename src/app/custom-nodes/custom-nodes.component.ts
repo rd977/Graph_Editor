@@ -74,7 +74,7 @@ export class CustomNodesComponent implements OnInit {
     // adding the edge
     if ((this.person.hasOwnProperty((this.node1) * 10 + this.node2)) === false) {
       console.log(((this.node1) * 10 + this.node2));
-      this.edges.update({id: ((this.node1) * 10 + this.node2), from: this.node1, to: this.node2 , color : 'blue' });
+      this.edges.update({id: ((this.node1) * 10 + this.node2) * 1, from: this.node1, to: this.node2 , color : 'blue' });
       this.person[(this.node1) * 10 + this.node2] = ((this.node1) * 10 + this.node2) * 10;
       } else {
       this.edges.update({id: this.person[(this.node1) * 10 + this.node2], from: this.node1, to: this.node2 , color : 'blue' });
@@ -105,6 +105,7 @@ export class CustomNodesComponent implements OnInit {
     console.log(this.person[(this.node3) * 10 + this.node4] / 10);
     this.edges.remove(this.person[(this.node3) * 10 + this.node4] / 10);
     this.person[(this.node3) * 10 + this.node4] = this.person[(this.node3) * 10 + this.node4] / 10;
+    console.log(this.edges.getIds());
   }
   // deletes all nodes linking to one edge
   delete_edges() {
