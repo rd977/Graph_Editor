@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Edge, Node, Network, DataSet } from 'vis-network/standalone';
-import anything = jasmine.anything;
 import set = Reflect.set;
 
 @Component({
@@ -46,13 +45,16 @@ export class CustomNodesComponent implements OnInit {
   toggle_labels() {
     this.nodes.getIds();
     if (this.on) {
-      for ( const id of this.nodes.getIds()) {
-        this.nodes.update([{id: id , font: {color: 'rgb(159, 249, 0)'} }]);
+      for (let j = 0; j < this.i - 1 ; j++) {
+        this.nodes.update([{id: j , font: {color: 'rgb(159, 249, 0)'} }]);
+        this.on = false;
+
       }
     } else {
-      this.nodes.update([{id: 1 , font : {color: 'black'} }]);
-      this.on = true;
+      for (let j = 0; j < this.i - 1 ; j++) {
+        this.nodes.update([{id: j , font: {color: 'black'} }]);
+        this.on = true;
     }
   }
 
-}
+}}
