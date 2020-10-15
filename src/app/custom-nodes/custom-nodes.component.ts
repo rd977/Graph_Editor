@@ -21,6 +21,8 @@ export class CustomNodesComponent implements OnInit {
   node3: number;
   node4: number;
   node5: number;
+  // try
+  person;
   // functions that store the input
   // see html code
   update1(value) {
@@ -37,6 +39,8 @@ export class CustomNodesComponent implements OnInit {
   }
 
   constructor() {
+    // test
+    this.person = {0: 0 };
     // Adding  Node1
     this.nodes = new DataSet([
       {
@@ -68,7 +72,14 @@ export class CustomNodesComponent implements OnInit {
     console.log(this.node1);
     console.log(this.node2);
     // adding the edge
-    this.edges.update({id: 1, from: this.node1, to: this.node2 , color : 'blue' });
+    if ((this.person.hasOwnProperty((this.node1) * 10 + this.node2)) === false) {
+      console.log(((this.node1) * 10 + this.node2));
+      this.edges.update({id: ((this.node1) * 10 + this.node2), from: this.node1, to: this.node2 , color : 'blue' });
+      this.person[(this.node1) * 10 + this.node2] = ((this.node1) * 10 + this.node2) * 10;
+      } else {
+      this.edges.update({id: this.person[(this.node1) * 10 + this.node2], from: this.node1, to: this.node2 , color : 'blue' });
+      this.person[(this.node1) * 10 + this.node2] = this.person[(this.node1) * 10 + this.node2] * 10;
+    }
   }
   // toggles label
   toggle_labels() {
@@ -91,7 +102,9 @@ export class CustomNodesComponent implements OnInit {
   unlink() {
     console.log(this.node3);
     console.log(this.node4);
-    this.edges.remove(1);
+    console.log(this.person[(this.node3) * 10 + this.node4] / 10);
+    this.edges.remove(this.person[(this.node3) * 10 + this.node4] / 10);
+    this.person[(this.node3) * 10 + this.node4] = this.person[(this.node3) * 10 + this.node4] / 10;
   }
   // deletes all nodes linking to one edge
   delete_edges() {
