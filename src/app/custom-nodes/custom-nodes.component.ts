@@ -14,6 +14,14 @@ export class CustomNodesComponent implements OnInit {
   edges: DataSet<Edge>;
   on = true ;
   i = 2;
+  node1: number;
+  node2: number;
+  update1(value) {
+    this.node1 = value;
+  }
+  update2(value: number) {
+    this.node2 = value;
+  }
 
   constructor() {
     this.nodes = new DataSet([
@@ -42,7 +50,9 @@ export class CustomNodesComponent implements OnInit {
   }
 
   link() {
-    this.edges.add({from: 1, to: 2});
+    console.log(this.node1);
+    console.log(this.node2);
+    this.edges.add({from: this.node1, to: this.node2 });
 
   }
   toggle_labels() {

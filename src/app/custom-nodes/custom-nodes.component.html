@@ -1,6 +1,8 @@
 <div id="mynetwork-vis" class="wrapper-network" xmlns="http://www.w3.org/1999/html"></div>
 <button class ="actionButton" (click)="add()" > Add node</button>
-<div><input type="text" ><input type="text">
-  <button class ="actionButton" (click)="link()">
+<div><input #box id="node1" type="text" (keyup.enter)="update1(box.value)"
+            (blur)="update1(box.value)" ><input #box id="node2" type="text" (keyup.enter)="update1(box.value)"
+                                                (blur)="update2(box.value)" >
+  <button  class ="actionButton" (click)="link()">
   Link 2 Nodes </button></div>
 <button class ="actionButton" (click)="toggle_labels()" > Toggle</button>
