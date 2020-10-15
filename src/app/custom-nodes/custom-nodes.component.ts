@@ -34,7 +34,10 @@ export class CustomNodesComponent implements OnInit {
   }
 
   add() {
-    this.nodes.add({ id: this.i, label: 'Node' + this.i });
+    this.nodes.add({ id: this.i, label: 'Node' + this.i , color: {
+        background: 'rgb(159, 249, 0)',
+        border: 'black',
+      }});
     this.i++;
   }
 
@@ -45,13 +48,13 @@ export class CustomNodesComponent implements OnInit {
   toggle_labels() {
     this.nodes.getIds();
     if (this.on) {
-      for (let j = 0; j < this.i - 1 ; j++) {
+      for (let j = 1; j < this.i ; j++) {
         this.nodes.update([{id: j , font: {color: 'rgb(159, 249, 0)'} }]);
         this.on = false;
 
       }
     } else {
-      for (let j = 0; j < this.i - 1 ; j++) {
+      for (let j = 1; j < this.i ; j++) {
         this.nodes.update([{id: j , font: {color: 'black'} }]);
         this.on = true;
     }
