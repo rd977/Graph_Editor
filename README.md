@@ -3,4 +3,4 @@ All code is commented.
 1:18 16/10/2020
 
 requirements : npm , node.js , and vis.js with all dependencies must be installed.
-some dependencies must be manually installed. working on adding them to package.json "dependencies"
+some dependencies must be manually installed. Working on adding them to package.json "dependencies".
