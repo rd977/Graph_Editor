@@ -21,8 +21,10 @@ export class CustomNodesComponent implements OnInit {
   node3: number;
   node4: number;
   node5: number;
-  // contains the next id of the edge
-  dict;
+  /* Dictionary containing next id of edges example from node 1 to node 2
+   has an id for the first edge :12 , second edge:120 ,fifth edge:1200000
+   */
+  id;
   // functions that store the input
   // see html code
   update1(value) {
@@ -42,8 +44,8 @@ export class CustomNodesComponent implements OnInit {
   }
 
   constructor() {
-    // not important
-    this.dict = {0: 0 };
+    // test
+    this.id = {0: 0 };
     // Adding  Node1
     this.nodes = new DataSet([
       {
@@ -54,9 +56,8 @@ export class CustomNodesComponent implements OnInit {
       }
     ]);
     this.edges = new DataSet([]);
-    }
+  }
   ngOnInit() {
-    // setting up the network with 1 node.
     const options = {};
     const container = document.getElementById('mynetwork-vis');
     const data = { nodes: this.nodes, edges: this.edges };
@@ -64,11 +65,11 @@ export class CustomNodesComponent implements OnInit {
   }
   // adds a node
   add() {
-    if (this.on) {
-    this.nodes.add({ id: this.i, label: 'Node' + this.i , color: {
-        background: 'rgb(159, 249, 0)',
-        border: 'black',
-      }}); } else {
+    if (this.on){
+      this.nodes.add({ id: this.i, label: 'Node' + this.i , color: {
+          background: 'rgb(159, 249, 0)',
+          border: 'black',
+        }});} else {
       this.nodes.add({ id: this.i, label: 'Node' + this.i , font: {color: 'rgb(159, 249, 0)'}, color: {
           background: 'rgb(159, 249, 0)',
           border: 'black',
@@ -77,14 +78,17 @@ export class CustomNodesComponent implements OnInit {
   }
   // links 2 nodes
   link() {
-    /* adding the edge using a hashfunction for the edge id h(node1,node2)= node1_id concat node2_id *10^i with
-    i is the number of the already existing edges between the 2 nodes */
-    if ((this.dict.hasOwnProperty((this.node1) * 10 + this.node2)) === false) {
-      this.dict({id: ((this.node1) * 10 + this.node2) * 1, from: this.node1, to: this.node2 , color : 'blue' });
-      this.dict[(this.node1) * 10 + this.node2] = ((this.node1) * 10 + this.node2) * 10;
-      } else {
-      this.edges.update({id: this.dict[(this.node1) * 10 + this.node2], from: this.node1, to: this.node2 , color : 'blue' });
-      this.dict[(this.node1) * 10 + this.node2] = this.dict[(this.node1) * 10 + this.node2] * 10;
+    // testing if user input is stored correctly
+    console.log(this.node1);
+    console.log(this.node2);
+    // adding the edge
+    if ((this.id.hasOwnProperty((this.node1) * 10 + this.node2)) === false) {
+      console.log(((this.node1) * 10 + this.node2));
+      this.edges.update({id: ((this.node1) * 10 + this.node2) * 1, from: this.node1, to: this.node2 , color : 'blue' });
+      this.id[(this.node1) * 10 + this.node2] = ((this.node1) * 10 + this.node2) * 10;
+    } else {
+      this.edges.update({id: this.id[(this.node1) * 10 + this.node2], from: this.node1, to: this.node2 , color : 'blue' });
+      this.id[(this.node1) * 10 + this.node2] = this.id[(this.node1) * 10 + this.node2] * 10;
     }
   }
   // toggles label
@@ -101,21 +105,26 @@ export class CustomNodesComponent implements OnInit {
       for (const j of this.nodes.getIds()) {
         this.nodes.update([{id: j , font: {color: 'black'} }]);
         this.on = true;
+      }
     }
   }
-  }
-  // deletes an edge between 2 given nodes
+  // deletes a node
   unlink() {
-    this.edges.remove(this.dict[(this.node3) * 10 + this.node4] / 10);
-    this.dict[(this.node3) * 10 + this.node4] = this.dict[(this.node3) * 10 + this.node4] / 10;
+    console.log(this.node3);
+    console.log(this.node4);
+    console.log(this.id[(this.node3) * 10 + this.node4] / 10);
+    this.edges.remove(this.id[(this.node3) * 10 + this.node4] / 10);
+    this.id[(this.node3) * 10 + this.node4] = this.id[(this.node3) * 10 + this.node4] / 10;
+    console.log(this.edges.getIds());
   }
   // deletes all edges
   delete_edges() {
     this.edges.clear();
-    this.dict = {0: 0 };
+    this.id = {0: 0 };
   }
   // deletes a node
   Delete_node() {
+    console.log(this.node5);
     this.nodes.remove([(this.node5) * 1]);
   }
 }
