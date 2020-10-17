@@ -1,6 +1,6 @@
 .wrapper-network {
   width: 98vw;
-  height: 83vh;
+  height: 83.2vh;
 }
 .actionButton {
   background-color: #3b5998;
@@ -21,7 +21,7 @@
 }
 div{
   margin-top: 8px;
-  margin-left: 20px;
+  margin-left: 18px;
 }
 
 .floatright{
