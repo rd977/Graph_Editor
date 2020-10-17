@@ -1,18 +1,18 @@
-<div class="top" id="mynetwork-vis" class="wrapper-network" ></div>
-<div class="top">
+<div id="mynetwork-vis" class="wrapper-network" ></div>
+<div>
   <button class ="actionButton1" (click)="add()" > Add node</button>
-  <button class ="actionButton left" (click)="delete_edges()" > Clear Edges</button>
+  <button class ="actionButton floatright" (click)="delete_edges()" > Clear Edges</button>
 </div>
-<div class="top">
+<div>
   <input #box id="node1" type="text" (keyup.enter)="update1(box.value)" (blur)="update1(box.value)" >
   <input #box1 id="node2" type="text" (keyup.enter)="update2(box1.value)" (blur)="update2(box1.value)" >
   <button  class ="actionButton" (click)="link()">Link 2 Nodes </button>
-  <button  class ="actionButton left" (click)="unlink()">Delete Edge </button>
-  <input #box3 class="left" type="text" (keyup.enter)="update4(box3.value)" (blur)="update4(box3.value)" >
-  <input #box2 class="left" type="text" (keyup.enter)="update3(box2.value)" (blur)="update3(box2.value)" >
+  <button  class ="actionButton floatright" (click)="unlink()">Delete Edge </button>
+  <input #box3 class="floatright" type="text" (keyup.enter)="update4(box3.value)" (blur)="update4(box3.value)" >
+  <input #box2 class="floatright" type="text" (keyup.enter)="update3(box2.value)" (blur)="update3(box2.value)" >
 </div>
-<div class="top">
+<div>
   <button class ="actionButton1" (click)="toggle_labels()" > Toggle</button>
-  <button class ="actionButton left" (click)="Delete_node()" > Delete Node</button>
-  <input #box4 class="left" type="text" (keyup.enter)="update5(box4.value)" (blur)="update5(box4.value)" >
+  <button class ="actionButton floatright" (click)="Delete_node()" > Delete Node</button>
+  <input #box4 class="floatright" type="text" (keyup.enter)="update5(box4.value)" (blur)="update5(box4.value)" >
 </div>

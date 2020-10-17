@@ -1,32 +1,42 @@
 .wrapper-network {
-  width: 100vw;
-  height: 82vh;
+  width: 98vw;
+  height: 83vh;
 }
 .actionButton {
-  background-color: #5800FF;
+  background-color: #3b5998;
   color: #F7F7F7;
   font-size: 16px;
-  cursor: pointer;
-  margin: 0 20px;
+  border-radius: 4px;
   font-weight: bold;
+  margin: 0 20px;
+  cursor: pointer;
 }
 .actionButton1 {
-  background-color: #5800FF;
+  background-color: #3b5998;
   color: #F7F7F7;
   font-size: 16px;
-  cursor: pointer;
+  border-radius: 4px;
   font-weight: bold;
+  cursor: pointer;
 }
-.top{
+div{
   margin-top: 8px;
   margin-left: 20px;
 }
 
+.floatright{
+  float: right;
+}
 input{
   margin-bottom: 10px;
   width : 50px;
- }
-.left{
-  float: right;
+  box-sizing: border-box;
+  border: 3px solid #808080;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+input:focus {
+  border: 3px solid #555;
 }
 
