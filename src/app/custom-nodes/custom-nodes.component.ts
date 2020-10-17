@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// vis-network package needed
 import { Edge, Node, Network, DataSet } from 'vis-network/standalone';
 
 @Component({
@@ -127,3 +128,24 @@ export class CustomNodesComponent implements OnInit {
     this.nodes.remove([(this.node5) * 1]);
   }
 }
+/* example of adding deleting edges :
+from node 1 to node 2 : first edge has id 12 second 120 fifth 1200000 ...
+the first time we add an edge between two specific nodes  the edge has (node1_id.node2_id) as an id
+we save this number*10 in the dictionnary.
+adding further edges : get id value from dict . multiply the value of dict by 10
+deleting edges : delete edge with id (value in dict) /10 (last added edge id) .
+and also divide value in dict by 10( we have now one less edge)
+
+edges   dict value of node1_id.node2_id
+0       none
+1       (node1_id.node2_id)*10
+2       (node1_id.node2_id) *100
+i       (node1_id.node2_id) *10^i
+with . is the concatenation of 2 numbers
+
+node 1_id  node2_id  edge1_id  edge2_id  edge3_id  edge.i_id
+1           2         12        120       1200     12 * 10^i
+5           7         57        570       5700     57 * 10^i
+
+log.console() is used to test user input.
+ */
