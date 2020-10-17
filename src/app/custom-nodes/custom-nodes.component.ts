@@ -21,9 +21,7 @@ export class CustomNodesComponent implements OnInit {
   node3: number;
   node4: number;
   node5: number;
-  /* Dictionary containing next id of edges example from node 1 to node 2
-   has an id for the first edge :12 , second edge:120 ,fifth edge:1200000
-   */
+  // Dictionary containing  id of next edges
   id;
   // functions that store the input
   // see html code
@@ -44,7 +42,7 @@ export class CustomNodesComponent implements OnInit {
   }
 
   constructor() {
-    // test
+    // not important
     this.id = {0: 0 };
     // Adding  Node1
     this.nodes = new DataSet([
@@ -65,11 +63,11 @@ export class CustomNodesComponent implements OnInit {
   }
   // adds a node
   add() {
-    if (this.on){
+    if (this.on) {
       this.nodes.add({ id: this.i, label: 'Node' + this.i , color: {
           background: 'rgb(159, 249, 0)',
           border: 'black',
-        }});} else {
+        }}); } else {
       this.nodes.add({ id: this.i, label: 'Node' + this.i , font: {color: 'rgb(159, 249, 0)'}, color: {
           background: 'rgb(159, 249, 0)',
           border: 'black',
@@ -81,11 +79,12 @@ export class CustomNodesComponent implements OnInit {
     // testing if user input is stored correctly
     console.log(this.node1);
     console.log(this.node2);
-    // adding the edge
+     // if there is at least one edge between the 2 nodes
     if ((this.id.hasOwnProperty((this.node1) * 10 + this.node2)) === false) {
       console.log(((this.node1) * 10 + this.node2));
       this.edges.update({id: ((this.node1) * 10 + this.node2) * 1, from: this.node1, to: this.node2 , color : 'blue' });
       this.id[(this.node1) * 10 + this.node2] = ((this.node1) * 10 + this.node2) * 10;
+      // no edge between the 2 nodes exists
     } else {
       this.edges.update({id: this.id[(this.node1) * 10 + this.node2], from: this.node1, to: this.node2 , color : 'blue' });
       this.id[(this.node1) * 10 + this.node2] = this.id[(this.node1) * 10 + this.node2] * 10;
