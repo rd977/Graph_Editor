@@ -24,7 +24,7 @@ export class CustomNodesComponent implements OnInit {
   node5: number;
   // Dictionary containing  id of next edges
   id;
-  // functions that store the input
+  // functions that store the user input
   // see html code
   update1(value) {
     this.node1 = value;
@@ -43,7 +43,7 @@ export class CustomNodesComponent implements OnInit {
   }
 
   constructor() {
-    // not important
+    // not important just so typescript read it as a dict
     this.id = {0: 0 };
     // Adding  Node1
     this.nodes = new DataSet([
@@ -54,9 +54,11 @@ export class CustomNodesComponent implements OnInit {
         }
       }
     ]);
+    // empty edges
     this.edges = new DataSet([]);
   }
   ngOnInit() {
+    // setting up the view
     const options = {};
     const container = document.getElementById('mynetwork-vis');
     const data = { nodes: this.nodes, edges: this.edges };
